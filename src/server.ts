@@ -1,14 +1,5 @@
-import fastify from 'fastify'
-import { database } from './database'
 import { env } from './env'
-
-const app = fastify()
-
-app.get('/hello', async () => {
-  const tables = await database('sqlite_schema').select('*')
-
-  return tables
-})
+import { app } from './app'
 
 app
   .listen({
